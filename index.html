@@ -5,14 +5,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script type="module" src="script.js"></script>
   </head>
   <body>
     <main>
-      <h1>Happy Dog!</h1>
-      <p>Find the best dog walker for your dog</p>
+      <h1>Happy Dog! 🐕</h1>
 
-      <div id="walker-list" class="walker-list"></div>
+      <!-- the list of all walkers -->
+      <div id="list-view">
+        <p>Find the best dog walker for your dog</p>
+        <div id="walker-list" class="walker-list"></div>
+      </div>
+
+      <!-- one walker, hidden until you click a card -->
+      <div id="detail-view" class="hidden">
+        <button id="back-button">← Back to list</button>
+
+        <div class="walker-profile">
+          <img id="detail-image" src="" alt="Walker's image" />
+          <h2 id="detail-name"></h2>
+          <p id="detail-rating"></p>
+        </div>
+
+        <p>Price: <span id="detail-rate">0</span> € / hour</p>
+        <p id="detail-availability"></p>
+        <p id="detail-description"></p>
+
+        <div id="map"></div>
+      </div>
+
+      <!-- Template for walker cards -->
+      <template id="walker-card-template">
+        <div class="walker-card">
+          <img src="" alt="Walker's image" class="walker-image" />
+          <div>
+            <h2 class="walker-name"></h2>
+            <p class="walker-rating"></p>
+            <p class="walker-availability"></p>
+          </div>
+        </div>
+      </template>
     </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://inorganik.github.io/countUp.js/dist/countUp.umd.js"></script>
   </body>
 </html>
